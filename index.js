@@ -59,3 +59,13 @@ async function init() {
 }
 
 init();
+
+// Esto de abajo es para Heroku
+
+process.on("uncaughtException", err => {
+  console.error("excepción inesperada", err.message, err);
+});
+
+process.on("unhandledRejection", err => {
+  console.error("Error inesperado", err.message, err);
+});
